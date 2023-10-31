@@ -1,24 +1,56 @@
+@using System.Data
+@using System.Data.SqlClient
+@using DevExpress.Web.Mvc
+
 @{
     ViewBag.Title = "Home Page";
 }
 
 
-@Html.DevExpress().Menu(settings =>
-{
-    settings.Name = "Menu";
-    settings.AllowSelectItem = true;
-    settings.Orientation = System.Web.UI.WebControls.Orientation.Horizontal;
-
-        settings.Items.Add(item =>
+@*@Html.DevExpress().Menu(settings =>
     {
-        item.Text = "MRP";
-        item.Items.Add("Ýmalat Dosya Takip");
-        item.Items.Add("Montaj Dosya Takip");
-        item.Items.Add("Proje Plan Takip Raporu");
-        item.Items.Add("Makine Takip Sistemi");
-        item.Items.Add("Üretim Giriþ");
-        item.Items.Add("MRP Rota Plan Takip Raporu");
-        item.Items.Add("MRP Üretim Rapor");
-    });
-    settings.Items.Add("Item 1");
-    }).GetHtml()
+        settings.Name = "Menu";
+        settings.AllowSelectItem = true;
+        settings.Orientation = System.Web.UI.WebControls.Orientation.Horizontal;
+
+            settings.Items.Add(item =>
+        {
+            item.Text = "MRP";
+            item.Items.Add("Ýmalat Dosya Takip");
+            item.Items.Add("Montaj Dosya Takip");
+            item.Items.Add("Proje Plan Takip Raporu");
+            item.Items.Add("Makine Takip Sistemi");
+            item.Items.Add("Üretim Giriþ");
+            item.Items.Add("MRP Rota Plan Takip Raporu");
+            item.Items.Add("MRP Üretim Rapor");
+        });
+        settings.Items.Add("Item 1");
+        }).GetHtml()*@
+
+
+
+
+
+
+
+
+@*@{
+    DataTable model = ViewData.Model as DataTable;
+}
+
+@{
+    var gridViewSettings = new GridViewSettings();
+    gridViewSettings.Name = "gridView";
+    gridViewSettings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+    gridViewSettings.Settings.ShowFilterRow = true;
+    gridViewSettings.Settings.ShowFilterRowMenu = true;
+    gridViewSettings.KeyFieldName = "YourPrimaryKeyColumn";
+
+    // Sütunlarý burada ekleyin
+    gridViewSettings.Columns.Add("Column1");
+    gridViewSettings.Columns.Add("Column2");
+}*@
+
+@*@Html.DevExpress().GridView(gridViewSettings).Bind(DataTable.GetDataTableView(model)).GetHtml()*@
+
+
